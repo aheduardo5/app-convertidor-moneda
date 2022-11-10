@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <h3>Convertidor</h3>
+    <form action="">
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Ingrese cantidad</label>
+          <input type="number" class="form-control" id="cantidad" aria-describedby="cantidadhelp">
+          <div id="cantidadhelp" class="form-text">Por favor ingrese la cantidad a convertir.</div>
+        </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="tengo">Tengo</label>
+            <select id="tengo" class="form-select" aria-label="Default select example">
+                <option selected>{{titleExchange}}</option>
+                <option value="1">USD</option>
+                <option value="2">EUR</option>
+                <option value="3">LIBRA</option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <label for="quiero">Quiero</label>
+            <select id="quiero" class="form-select" aria-label="Default select example">
+                <option selected>{{titleExchange}}</option>
+                <option value="1">USD</option>
+                <option value="2">EUR</option>
+                <option value="3">LIBRA</option>
+            </select>
+        </div>
+    </div>
+    </form>
+    <h5 class="text-center mt-3">1000 DLS SON 1000 EUR</h5>
+</div>
