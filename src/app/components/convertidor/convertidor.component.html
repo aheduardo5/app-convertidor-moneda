@@ -1,31 +1,48 @@
 <div class="container mt-3">
-    <h3>Convertidor</h3>
-    <form action="">
-        <div class="mb-3">
-          <label for="cantidad" class="form-label">Ingrese cantidad</label>
-          <input type="number" class="form-control" id="cantidad" aria-describedby="cantidadhelp">
-          <div id="cantidadhelp" class="form-text">Por favor ingrese la cantidad a convertir.</div>
-        </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <label for="tengo">Tengo</label>
-            <select id="tengo" class="form-select" aria-label="Default select example">
-                <option selected>{{titleExchange}}</option>
-                <option value="1">USD</option>
-                <option value="2">EUR</option>
-                <option value="3">LIBRA</option>
-            </select>
-        </div>
-        <div class="col-lg-6">
-            <label for="quiero">Quiero</label>
-            <select id="quiero" class="form-select" aria-label="Default select example">
-                <option selected>{{titleExchange}}</option>
-                <option value="1">USD</option>
-                <option value="2">EUR</option>
-                <option value="3">LIBRA</option>
-            </select>
-        </div>
+  <h3 class="textWhite">Convertidor</h3>
+  <div class="mb-3">
+    <label for="cantidad" class="form-label textWhite">Ingrese cantidad</label>
+    <input
+      type="text"
+      [(ngModel)]="cantidad"
+      class="form-control"
+      id="cantidad"
+      aria-describedby="cantidadhelp"
+      (input)="convertir()"
+    />
+    <div id="cantidadhelp" class="form-text textWhite">
+      Por favor ingrese la cantidad a convertir.
     </div>
-    </form>
-    <h5 class="text-center mt-3">1000 DLS SON 1000 EUR</h5>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 mb-2">
+      <label for="tengo" class="mb-2 textWhite">Tengo</label>
+      <select
+        id="tengo"
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="tengo"
+        (change)="convertir()"
+      >
+        <option *ngFor="let moneda of monedas">{{ moneda }}</option>
+      </select>
+    </div>
+    <div class="col-lg-6 mb-2">
+      <label for="quiero" class="mb-2 textWhite">Quiero</label>
+      <select
+        id="quiero"
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="quiero"
+        (change)="convertir()"
+      >
+        <option *ngFor="let moneda of monedas">{{ moneda }}</option>
+      </select>
+    </div>
+  </div>
+  <h5 class="text-center mt-3" *ngIf="cantidad > 0">
+    <span class="badge text-bg-success">{{ cantidad + " " + tengo }}</span>
+    <span class="mx-3 badge text-bg-secondary">SON </span>
+    <span class="badge text-bg-success">{{ total | number: '0.0-2'}} {{ quiero }}</span>
+  </h5>
 </div>
